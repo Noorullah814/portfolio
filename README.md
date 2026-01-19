@@ -1,16 +1,44 @@
-# React + Vite
+🚀 React Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, fully responsive personal portfolio website built using React.js, Tailwind CSS, and Framer Motion. The site showcases my skills, projects, and experience with smooth animations, section-based navigation, and a functional contact form powered by EmailJS.
 
-Currently, two official plugins are available:
+✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-⚡ Single Page Application (SPA) with smooth scroll navigation
+-🎨 Responsive UI using Tailwind CSS (mobile, tablet & desktop friendly)
+-🎥 Smooth Animations using Framer Motion
+-🧭 Sticky Navbar with section-based scrolling (About, Skills, Projects, Contact)
+-🔗 Social Media Links (GitHub, LinkedIn, Instagram, X)
+-📂 Projects Section with:
+   -GitHub Repository Links
+   -Live Demo Links
+-📩 Functional Contact Form
+    -Name, Email, Message fields
+    -Sends emails directly to Gmail using EmailJS
+-🧾 Footer Section
+    -Quick navigation shortcuts
+    -Social links
 
-## React Compiler
+🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+-Frontend: React.js
+-Styling: Tailwind CSS
+-Animations: Framer Motion
+-Email Service: EmailJS
+-Build Tool: Vite
+-Version Control: Git & GitHub
 
-## Expanding the ESLint configuration
+📌 Live Demo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🔗 Portfolio Website: https://noorullah814.github.io/portfolio/
+
+👨‍💻 Author
+
+NoOr Ullah
+Frontend Developer
+
+GitHub: https://github.com/repos
+LinkedIn: https://www.linkedin.com/in/noor-ullah-45642326b/
+
+
+⭐ If you like this project, consider giving it a star on GitHub!
