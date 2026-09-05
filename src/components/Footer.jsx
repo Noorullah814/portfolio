@@ -4,7 +4,7 @@ import { Github, Linkedin, Instagram, X } from 'lucide-react';
 
 const container = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 
 const item = {
@@ -12,58 +12,89 @@ const item = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 };
 
+// Reusable styling for premium glassmorphic social icons
+const socialLinkStyle = "w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-orange-500/10 hover:border-orange-500/30 hover:text-orange-400 transition-all duration-300 hover:scale-110";
+
 const Footer = () => {
+  // Automatically updates the copyright year
+  const currentYear = new Date().getFullYear();
+
   return (
     <motion.footer
-      className=' bg-linear-to-b from-[#0A0F1F] to-[#1A1F30] py-10 sm:py-12 px-4 sm:px-8 md:px-20 lg:px-28 relative overflow-hidden'
+      className='bg-[#0A0F1F] border-t border-white/10 pt-16 pb-8 px-4 sm:px-8 md:px-12 lg:px-20 relative overflow-hidden'
       variants={container}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
-      
-      <div className='absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(234,88,12,0.05),transparent)] pointer-events-none' />
-      
-      <div className='max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-0'>
-       
-        <motion.div className='flex flex-col items-start' variants={item}>
-          <div className='flex items-center gap-3 mb-2'>
-            <span className='bg-orange-600 p-2 rounded-full font-bold text-xl text-white'>N</span>
-            <h3 className='text-2xl font-bold text-white'>NoOr Ullah</h3>
-          </div>
-          <p className='text-gray-400 text-sm font-medium'>Frontend Developer • React • UI Motion</p>
+      {/* Ambient Floor Glow */}
+      <div className='absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-orange-600/10 rounded-[100%] blur-[80px] pointer-events-none' />
+
+      <div className='max-w-6xl mx-auto relative z-10'>
+        
+        {/* Main Content: Stacks centered on mobile, spreads apart on desktop */}
+        <div className='flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0'>
+          
+          {/* Brand Section */}
+          <motion.div className='flex flex-col items-center md:items-start' variants={item}>
+            <div className='flex items-center gap-3 mb-3'>
+              {/* Upgraded Logo Presentation */}
+              <div className='w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/20'>
+                <span className='font-bold text-xl text-white'>N</span>
+              </div>
+              <h3 className='text-2xl font-bold text-white tracking-tight'>NoOr Ullah</h3>
+            </div>
+            <p className='text-gray-400 text-sm font-medium text-center md:text-left'>
+              Frontend Developer &bull; React &bull; UI Motion
+            </p>
+          </motion.div>
+          
+          {/* Navigation Links */}
+          <motion.nav className='flex flex-wrap justify-center gap-6 sm:gap-8' variants={item}>
+            {['About', 'Skills', 'Projects','Experience', 'Contact'].map((link) => (
+              <a 
+                key={link} 
+                href={`#${link.toLowerCase()}`} 
+                className='text-gray-400 text-sm font-medium hover:text-white transition-colors duration-300 relative group'
+              >
+                {link}
+                {/* Underline expanding animation on hover */}
+                <span className="absolute -bottom-1.5 left-0 w-0 h-[2px] bg-orange-500 transition-all duration-300 group-hover:w-full rounded-full"></span>
+              </a>
+            ))}
+          </motion.nav>
+          
+          {/* Social Links */}
+          <motion.div className='flex gap-4' variants={item}>
+            <a href="https://github.com/Noorullah814" target="_blank" rel="noreferrer" className={socialLinkStyle}>
+              <Github size={18} />
+            </a>
+            <a href="https://www.linkedin.com/in/noor-ullah-45642326b/" target="_blank" rel="noreferrer" className={socialLinkStyle}>
+              <Linkedin size={18} />
+            </a>
+            <a href="https://www.threads.com/@itx_noor_148" target="_blank" rel="noreferrer" className={socialLinkStyle}>
+              <Instagram size={18} />
+            </a>
+            <a href="https://x.com/itxnoor148" target="_blank" rel="noreferrer" className={socialLinkStyle}>
+              <X size={18} />
+            </a>
+          </motion.div>
+        </div>
+        
+        {/* Divider and Copyright Area */}
+        <motion.div 
+          variants={item} 
+          className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4"
+        >
+          <p className='text-gray-500 text-xs sm:text-sm font-medium text-center sm:text-left'>
+            &copy; {currentYear} NoOr Ullah. All rights reserved.
+          </p>
+          <p className="text-gray-500 text-xs sm:text-sm font-medium text-center sm:text-right flex items-center">
+            Crafted with <span className="text-orange-500 mx-1.5">&hearts;</span> and Framer Motion
+          </p>
         </motion.div>
-        
-      
-        <motion.nav className='flex flex-col md:flex-row gap-4 md:gap-8 text-center md:text-left' variants={item}>
-          <a href="#about" className='text-gray-300 text-sm font-medium hover:text-orange-600 transition-colors duration-300 hover:scale-105'>About</a>
-          <a href="#skills" className='text-gray-300 text-sm font-medium hover:text-orange-600 transition-colors duration-300 hover:scale-105'>Skills</a>
-          <a href="#projects" className='text-gray-300 text-sm font-medium hover:text-orange-600 transition-colors duration-300 hover:scale-105'>Projects</a>
-          <a href="#contact" className='text-gray-300 text-sm font-medium hover:text-orange-600 transition-colors duration-300 hover:scale-105'>Contact</a>
-        </motion.nav>
-        
-        
-        <motion.div className='flex gap-4' variants={item}>
-          <a href="https://github.com/repos" target="_blank"  className='text-gray-400 hover:text-orange-600 transition-colors duration-300 hover:scale-110'>
-            <Github size={20} />
-          </a>
-          <a href="https://www.linkedin.com/in/noor-ullah-45642326b/" target="_blank"  className='text-gray-400 hover:text-orange-600 transition-colors duration-300 hover:scale-110'>
-            <Linkedin size={20} />
-          </a>
-          <a href="https://www.threads.com/@itx_noor_148" target="_blank"  className='text-gray-400 hover:text-orange-600 transition-colors duration-300 hover:scale-110'>
-            <Instagram size={20} />
-          </a>
-          <a href="https://x.com/itxnoor148" target="_blank"  className='text-gray-400 hover:text-orange-600 transition-colors duration-300 hover:scale-110'>
-            <X size={20} />
-          </a>
-        </motion.div>
+
       </div>
-      
-     
-      <motion.hr className='my-6 sm:my-8 border-gray-700' variants={item} />
-      <motion.p className='text-center text-gray-400 text-xs font-medium' variants={item}>
-        © 2025 NoOr Ullah. All rights reserved.
-      </motion.p>
     </motion.footer>
   );
 };
